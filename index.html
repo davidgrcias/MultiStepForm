@@ -71,14 +71,16 @@
       $("#tab-1").css("display", "block");
 
       function run(hideTab, showTab){
-        // Validation
-        var currentTab = 0;
-        x = $('#tab-'+hideTab);
-        y = $(x).find("input")
-        for (i = 0; i < y.length; i++){
-          if (y[i].value == ""){
-            $(y[i]).css("background", "#ffdddd");
-            return false;
+        if(hideTab < showTab){ // If not press previous button
+          // Validation if press next button
+          var currentTab = 0;
+          x = $('#tab-'+hideTab);
+          y = $(x).find("input")
+          for (i = 0; i < y.length; i++){
+            if (y[i].value == ""){
+              $(y[i]).css("background", "#ffdddd");
+              return false;
+            }
           }
         }
 
