@@ -19,47 +19,47 @@
 
       <div class="tab" id = "tab-1">
         <p>Name:</p>
-        <input type = "text" placeholder="First Name" name="firstname" id = "input-1">
-        <input type = "text" placeholder="Last Name" name="lastname" id = "input-2">
+        <input type = "text" placeholder="First Name" name="firstname">
+        <input type = "text" placeholder="Last Name" name="lastname">
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(2, 1, 2);">Next</div>
+          <div class="index-btn" onclick="run(1, 2);">Next</div>
         </div>
       </div>
 
       <div class="tab" id = "tab-2">
         <p>Contact Info:</p>
-        <input type = "text" placeholder="Email" name="email" id = "input-3">
-        <input type = "text" placeholder="Phone" name="phone" id = "input-4">
+        <input type = "text" placeholder="Email" name="email">
+        <input type = "text" placeholder="Phone" name="phone">
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(0, 2, 1);">Previous</div>
-          <div class="index-btn" onclick="run(4, 2, 3);">Next</div>
+          <div class="index-btn" onclick="run(2, 1);">Previous</div>
+          <div class="index-btn" onclick="run(2, 3);">Next</div>
         </div>
       </div>
 
       <div class="tab" id = "tab-3">
         <p>Birthday:</p>
-        <input type = "text" placeholder="dd" name="dd" id = "input-5">
-        <input type = "text" placeholder="mm" name="mm" id = "input-6">
-        <input type = "text" placeholder="yy" name="yy" id = "input-7">
+        <input type = "text" placeholder="dd" name="dd">
+        <input type = "text" placeholder="mm" name="mm">
+        <input type = "text" placeholder="yy" name="yy">
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(0, 3, 2);">Previous</div>
-          <div class="index-btn" onclick="run(7, 3, 4);">Next</div>
+          <div class="index-btn" onclick="run(3, 2);">Previous</div>
+          <div class="index-btn" onclick="run(3, 4);">Next</div>
         </div>
       </div>
 
       <div class="tab" id = "tab-4">
         <p>Login Info:</p>
-        <input type = "text" placeholder="Username" name="username" id = "input-8">
-        <input type = "password" placeholder="Password" name="password" id = "input-9">
+        <input type = "text" placeholder="Username" name="username">
+        <input type = "password" placeholder="Password" name="password">
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(0, 4, 3);">Previous</div>
-          <div class="index-btn" onclick="run(9, 4, 5);">Next</div>
+          <div class="index-btn" onclick="run(4, 3);">Previous</div>
+          <div class="index-btn" onclick="run(4, 5);">Next</div>
         </div>
       </div>
 
       <div class="tab" id = "tab-5">
         <div class="index-btn-wrapper">
-          <div class="index-btn" onclick="run(0, 5, 4);">Previous</div>
+          <div class="index-btn" onclick="run(5, 4);">Previous</div>
           <button class = "index-btn" type="submit" name="submit" style = "background: blue;">Submit</button>
         </div>
       </div>
@@ -70,11 +70,14 @@
       $(".tab").css("display", "none");
       $("#tab-1").css("display", "block");
 
-      function run(countInput, hideTab, showTab){
+      function run(hideTab, showTab){
         // Validation
-        for (i = 1; i <= countInput; i++){
-          if($('#input-'+i).val() == ""){
-            $("#input-"+i).css("background", "#ffdddd");
+        var currentTab = 0;
+        x = $('#tab-'+hideTab);
+        y = $(x).find("input")
+        for (i = 0; i < y.length; i++){
+          if (y[i].value == ""){
+            $(y[i]).css("background", "#ffdddd");
             return false;
           }
         }
